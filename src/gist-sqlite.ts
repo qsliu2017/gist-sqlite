@@ -25,14 +25,14 @@ async function initGistSqlJs(
   const SQL = await initSqlJs(config);
   const octokit = new Octokit({ auth: config.gh_token });
 
-  let data: Uint8Array;
+  let data: Uint8Array = new Uint8Array();
   if (gist_id) {
     const resp = await octokit.rest.gists.get({ gist_id });
     if (resp.status !== 200) {
       throw new Error(`Error getting gist, status: ${resp.status}`);
     }
-    const content = resp.data.files[filename].content;
-    data = Uint8Array.from(content.split(",").map(x => parseInt(x)));
+    data = Uint8Array.from(resp.data.files![filename]!
+      .content!.split(",").map(x => parseInt(x)));
   }
 
   const update: (data: Uint8Array) => Promise<void> = async (data) => {

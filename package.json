@@ -1,9 +1,12 @@
 {
   "name": "gist-sqlite",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.1.3",
+  "description": "SQLite database purely running on browser and using GitHub Gist as storage",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "compile": "tsc"
   },
   "repository": {
     "type": "git",

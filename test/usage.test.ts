@@ -4,7 +4,7 @@ test("initGistSqlJs has the same usage as sql.js", async () => {
   // const initGistSqlJs = require("../src/gist-sqlite");
 
   const SQL = await initGistSqlJs({
-    gh_token: process.env.GITHUB_TOKEN,
+    gh_token: process.env.GITHUB_TOKEN || "",
     gist_id: "4a9feacf49030cc50d85ec671057e388",
     filename: "gist-sqlite"
   });
